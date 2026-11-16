@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <style>
+    body {
+      margin: 18px;
+      font-family: "Times New Roman", Times, serif;
+      font-size: 16px;
+    }
+
+    /* Two boxes */
+    .boxes {
+      display: flex;
+      gap: 26px;
+    }
+    .box {
+      width: 625px;
+      box-sizing: border-box;
+      background: #eef5ff;
+      border-radius: 14px;
+      padding: 28px 22px 24px;
+    }
+    .box h2 {
+      margin: 0 0 20px;
+      font-size: 24px;
+    }
+    .box p {
+      margin: 0;
+    }
+
+    /* Table */
+    table {
+      width: 1320px;
+      max-width: 100%;
+      margin-top: 22px;
+      border-collapse: collapse;
+    }
+    th {
+      background: #a3d2e2;
+      padding: 12px;
+      border: 1px solid #d6eaf2;
+      text-align: center;
+    }
+    td {
+      padding: 12px;
+      border: 1px solid #e4f1f8;
+      text-align: left;
+    }
+    th:nth-child(1) { width: 105px; }
+    th:nth-child(2) { width: 376px; }
+    th:nth-child(3) { width: 575px; }
+    th:nth-child(4) { width: 263px; }
+
+    /* Form */
+    h2.form-title {
+      margin: 22px 0 22px;
+      font-size: 24px;
+    }
+    form {
+      max-width: 1344px;
+    }
+    input {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+      height: 40px;
+      margin-bottom: 11px;
+      padding: 0 11px;
+      border: 1px solid #bbb;
+      border-radius: 6px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+    }
+    input::placeholder {
+      color: #666;
+    }
+    button {
+      background: green;
+      color: #fff;
+      border: 2px solid #000;
+      border-radius: 4px;
+      padding: 1px 6px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0a7a0a;
+    }
+
+    @media (max-width: 1400px) {
+      .boxes { flex-wrap: wrap; }
+      .box { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="boxes">
+    <div class="box">
+      <h2>Left box</h2>
+      <p>Content for left box goes here</p>
+    </div>
+    <div class="box">
+      <h2>Right Box</h2>
+      <p>Content for right box goes here</p>
+    </div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>John Doe</td>
+        <td>john@example.com</td>
+        <td>Active</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>James Smith</td>
+        <td>james@example.com</td>
+        <td>Inactive</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Bob Johnson</td>
+        <td>bob@example.com</td>
+        <td>Active</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2 class="form-title">Register User</h2>
+  <form>
+    <input type="text" placeholder="Username">
+    <input type="email" placeholder="Email">
+    <input type="password" placeholder="Password">
+    <button type="submit">Submit</button>
+  </form>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  ul.sidebar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 220px;
+    background-color: #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+  }
+
+  ul.sidebar li a {
+    display: block;
+    color: #333;
+    padding: 18px 18px;
+    text-decoration: none;
+  }
+
+  ul.sidebar li a:hover {
+    background-color: #bbb;
+  }
+
+  ul.sidebar li a.active {
+    background-color: #2196F3;
+    color: white;
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+
+<h2>Vertical Sidebar Menu</h2>
+<p>The current page is highlighted with a blue background. Hover over other links to see the effect.</p>
+
+<ul class="sidebar">
+  <li><a class="active" href="#dashboard">Dashboard</a></li>
+  <li><a href="#services">Services</a></li>
+  <li><a href="#projects">Projects</a></li>
+  <li><a href="#team">Team</a></li>
+  <li><a href="#contact">Contact</a></li>
+</ul>
+
+</body>
+</html>

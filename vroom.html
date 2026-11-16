@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LUXE Store</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ---------- RESET ---------- */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'DM Sans', sans-serif; color: #1a1a1a; background: #fff; }
+    a { text-decoration: none; color: inherit; }
+    img { display: block; }
+
+    /* ---------- TOP: announcement bar ---------- */
+    .top {
+      background: #1a1a1a;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      font-size: 13px;
+      letter-spacing: 1px;
+    }
+
+    /* ---------- NAV: header ---------- */
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 5%;
+      border-bottom: 1px solid #eee;
+    }
+    .log { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 700; }
+    .log span { color: #b8935a; }
+    .hub { display: flex; gap: 30px; font-size: 13px; }
+    .set { display: flex; gap: 18px; font-size: 18px; }
+
+    /* ---------- BIG: hero section ---------- */
+    .big {
+      position: relative;
+      height: 480px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+    /* the hero picture fills the whole section */
+    .big .fit {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+    /* dark layer on top of the picture */
+    .big::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.35);
+      z-index: 1;
+    }
+    .big .txt { position: relative; z-index: 2; padding: 0 5%; max-width: 520px; }
+    .big h1 { font-family: 'Playfair Display', serif; font-size: 46px; line-height: 1.15; margin: 14px 0; }
+    .big p { font-size: 14px; margin-bottom: 24px; }
+
+    /* ---------- TAG: small gold label ---------- */
+    .tag { color: #b8935a; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; font-weight: 700; }
+
+    /* ---------- GLD: gold button ---------- */
+    .gld {
+      display: inline-block;
+      background: #b8935a;
+      color: #fff;
+      padding: 12px 24px;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    /* ---------- BOX: a section wrapper ---------- */
+    .box { padding: 60px 5%; }
+    .box h2 { font-family: 'Playfair Display', serif; font-size: 26px; margin-top: 8px; }
+
+    /* ---------- ROW: title + "view all" ---------- */
+    .row { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 25px; }
+    .row a { font-size: 12px; font-weight: 700; }
+
+    /* ---------- CAT: category cards ---------- */
+    .cat-wrap { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .cat { position: relative; height: 260px; overflow: hidden; }
+    .cat .fit { width: 100%; height: 100%; object-fit: cover; }
+    .cat h3 {
+      position: absolute;
+      bottom: 12px; left: 14px;
+      color: #fff;
+      font-family: 'Playfair Display', serif;
+      font-size: 16px;
+    }
+
+    /* ---------- POD: product cards ---------- */
+    .pod-wrap { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .pod { border: 1px solid #eee; position: relative; background: #fff; }
+    .pod .fit { width: 100%; height: 260px; object-fit: cover; }
+    .pod .inf { padding: 16px; }
+    .pod small { color: #888; letter-spacing: 1px; text-transform: uppercase; font-size: 12px; }
+    .pod h3 { font-family: 'Playfair Display', serif; font-size: 20px; margin: 8px 0; }
+
+    /* ---------- BAD: badge (-20%, NEW) ---------- */
+    .bad {
+      position: absolute;
+      top: 12px; left: 12px;
+      background: #8b1e2d;
+      color: #fff;
+      font-size: 10px;
+      padding: 4px 8px;
+      font-weight: 700;
+    }
+
+    /* ---------- NOW / WAS: prices ---------- */
+    .now { font-size: 13px; font-weight: 700; }
+    .was { font-size: 11px; color: #aaa; text-decoration: line-through; margin-left: 6px; }
+
+    /* ---------- BUY: add to cart button ---------- */
+    .buy {
+      display: block;
+      width: 100%;
+      margin-top: 14px;
+      padding: 12px;
+      background: #fff;
+      border: 1px solid #1a1a1a;
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+    .buy:hover { background: #1a1a1a; color: #fff; }
+
+    /* ---------- ADS: offer banner ---------- */
+    .ads {
+      position: relative;
+      height: 250px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+    .ads .fit { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+    .ads::after { content: ""; position: absolute; inset: 0; background: rgba(0, 0, 0, 0.5); z-index: 1; }
+    .ads .txt { position: relative; z-index: 2; padding: 0 8%; }
+    .ads h2 { font-family: 'Playfair Display', serif; font-size: 30px; margin: 10px 0; }
+    .ads p { font-size: 13px; margin-bottom: 18px; }
+
+    /* ---------- JOY: newsletter ---------- */
+    .joy { background: #f6f4ef; text-align: center; padding: 70px 5%; }
+    .joy h2 { font-family: 'Playfair Display', serif; font-size: 36px; margin: 12px 0; }
+    .joy p { color: #777; margin-bottom: 24px; }
+    .joy form { display: inline-flex; }
+    .joy input { padding: 14px; width: 260px; border: 1px solid #ddd; font-size: 12px; }
+    .joy button { padding: 14px 20px; background: #1a1a1a; color: #fff; border: none; font-size: 11px; letter-spacing: 1px; cursor: pointer; }
+
+    /* ---------- END: footer ---------- */
+    .end { background: #1a1a1a; color: #bbb; padding: 60px 5% 20px; }
+    .end .top-part { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 30px; }
+    .end h4 { color: #fff; font-size: 18px; margin-bottom: 14px; }
+    .end li { list-style: none; margin-bottom: 10px; font-size: 15px; }
+    .end .log { color: #fff; }
+    .end .low { border-top: 1px solid #333; margin-top: 40px; padding-top: 20px; text-align: center; font-size: 14px; }
+
+    /* ---------- PHONE SIZE ---------- */
+    @media (max-width: 800px) {
+      .hub { display: none; }
+      .cat-wrap, .pod-wrap { grid-template-columns: repeat(2, 1fr); }
+      .big h1 { font-size: 34px; }
+      .end .top-part { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ===== ANNOUNCEMENT BAR ===== -->
+  <div class="top">FREE SHIPPING ON ORDERS ABOVE ₦100,000</div>
+
+  <!-- ===== HEADER ===== -->
+  <header class="nav">
+    <div class="log">LUXE<span>.</span></div>
+
+    <nav class="hub">
+      <a href="#">Home</a>
+      <a href="#">Shop</a>
+      <a href="#">Categories</a>
+      <a href="#">About</a>
+    </nav>
+
+    <div class="set">
+      <span>🔍</span>
+      <span>♡</span>
+      <span>🛒</span>
+    </div>
+  </header>
+
+  
+  <section class="big">
+    
+    <img class="fit" src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1800" alt="Hero image">
+
+    <div class="txt">
+      <span class="tag">New Collection 2026</span>
+      <h1>Style that speaks for you.</h1>
+      <p>Discover timeless fashion pieces designed to make every moment unforgettable.</p>
+      <a class="gld" href="#">Shop Collection →</a>
+    </div>
+  </section>
+
+  <!-- ===== SHOP BY CATEGORY ===== -->
+  <section class="box">
+    <span class="tag">Explore Our Store</span>
+    <div class="row">
+      <h2>Shop by Category</h2>
+      <a href="#">View All →</a>
+    </div>
+
+    <div class="cat-wrap">
+      <div class="cat">
+        <img class="fit" src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=700" alt="Women's Fashion">
+        <h3>Women's Fashion</h3>
+      </div>
+
+      <div class="cat">
+        <img class="fit" src="https://images.unsplash.com/photo-1516257984-b1b4d707412e?w=700" alt="Men's Fashion">
+        <h3>Men's Fashion</h3>
+      </div>
+
+      <div class="cat">
+        <img class="fit" src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=700" alt="Footwear">
+        <h3>Footwear</h3>
+      </div>
+
+      <div class="cat">
+        <img class="fit" src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=700" alt="Accessories">
+        <h3>Accessories</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FEATURED PRODUCTS ===== -->
+  <section class="box">
+    <span class="tag">Handpicked For You</span>
+    <div class="row">
+      <h2>Featured Products</h2>
+      <a href="#">View All Products →</a>
+    </div>
+
+    <div class="pod-wrap">
+
+      <!-- Product 1 -->
+      <div class="pod">
+        <span class="bad">-20%</span>
+        <img class="fit" src="PUT_PRODUCT_1_IMAGE_URL_HERE" alt="Classic Casual Jacket">
+        <div class="inf">
+          <small>Men's Clothing</small>
+          <h3>Classic Casual Jacket</h3>
+          <span class="now">₦85,000</span><span class="was">₦105,000</span>
+          <button class="buy">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="pod">
+        <span class="bad">NEW</span>
+        <img class="fit" src="PUT_PRODUCT_2_IMAGE_URL_HERE" alt="Elegant Summer Dress">
+        <div class="inf">
+          <small>Women's Clothing</small>
+          <h3>Elegant Summer Dress</h3>
+          <span class="now">₦65,000</span>
+          <button class="buy">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="pod">
+        <img class="fit" src="PUT_PRODUCT_3_IMAGE_URL_HERE" alt="Premium Sport Sneakers">
+        <div class="inf">
+          <small>Footwear</small>
+          <h3>Premium Sport Sneakers</h3>
+          <span class="now">₦95,000</span>
+          <button class="buy">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 4 -->
+      <div class="pod">
+        <span class="bad">-15%</span>
+        <img class="fit" src="PUT_PRODUCT_4_IMAGE_URL_HERE" alt="Luxury Leather Handbag">
+        <div class="inf">
+          <small>Accessories</small>
+          <h3>Luxury Leather Handbag</h3>
+          <span class="now">₦120,000</span><span class="was">₦140,000</span>
+          <button class="buy">Add to Cart</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== OFFER BANNER ===== -->
+  <section class="ads">
+    <!-- PUT YOUR BANNER IMAGE URL BETWEEN THE QUOTES -->
+    <img class="fit" src="PUT_BANNER_IMAGE_URL_HERE" alt="Offer banner">
+
+    <div class="txt">
+      <span class="tag">Limited Time Offer</span>
+      <h2>Upgrade Your Style. Save More.</h2>
+      <p>Enjoy up to 30% off selected collections.</p>
+      <a class="gld" href="#">Explore Deals →</a>
+    </div>
+  </section>
+
+  <!-- ===== NEWSLETTER ===== -->
+  <section class="joy">
+    <span class="tag">Stay in the Loop</span>
+    <h2>Get 10% Off Your First Order</h2>
+    <p>Subscribe to receive exclusive offers and new arrivals.</p>
+    <form>
+      <input type="email" placeholder="Enter your email address">
+      <button type="submit">SUBSCRIBE</button>
+    </form>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="end">
+    <div class="top-part">
+
+      <div>
+        <div class="log">LUXE<span>.</span></div>
+        <p style="margin-top:12px; font-size:18px;">Fashion that defines your individuality.</p>
+      </div>
+
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Shop</a></li>
+          <li><a href="#">Categories</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Customer Service</h4>
+        <ul>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Shipping Policy</a></li>
+          <li><a href="#">Returns &amp; Refunds</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Follow Us</h4>
+        <ul>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">TikTok</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="low">© 2026 LUXE STORE. All rights reserved.</div>
+  </footer>
+
+</body>
+</html>

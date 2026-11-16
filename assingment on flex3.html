@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+      *{margin: 0;
+      }
+      footer{
+        display: flex;
+        padding: 15px;
+        background-color: rgb(56, 54, 54);
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        gap: 40px;
+      }
+
+       footer a{
+        text-decoration: none;
+        color: aliceblue;
+       }
+      
+      
+        .container{
+            display: flex;
+            
+            margin: auto;
+            padding: 5px;
+            border: 1px solid black;
+            width:100%;
+            gap: 20px;
+      } 
+      header{
+        background-color: rgb(199, 117, 117);
+        padding: 15px;
+        display: flex;
+        flex-direction:row;
+        color: aliceblue;
+        align-items: center;
+        gap: 40px;
+        width: 100%;
+        justify-content: center;
+        position: relative;
+        
+      } 
+      header a{ color: aliceblue;
+    text-decoration: none;}
+    header a.logout{ color: red;
+    right: 10px;
+  position: absolute;}
+  .navleft{
+    display: flex;
+    gap: 10px;
+    min-height: 400px;
+  }
+  .left, .right{
+    background-color:gray;
+    width: 165px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    box-sizing: border-box;
+  }
+  .left a, .right a{
+    color: rgb(5, 16, 16);
+    font-weight: bold;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+    
+
+
+
+
+    main{flex: 1;
+    display: flex;
+  flex-wrap: wrap;
+background-color: aliceblue;
+justify-content: space-between;
+padding: 12px;
+flex-direction: row;}
+  .card{
+    width: 32%;
+    box-sizing: border-box;
+    background-color: white;
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+    box-shadow: 0 1px 4px;
+  }
+  .card img{
+    width: 100%;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 6px;
+  }
+   nav.left a{
+    display: block;
+  }
+  nav.left a:hover{
+    background-color: bisque;
+    color: cadetblue;
+  }
+   
+    </style>
+</head>
+<body>
+    <div class=" container">
+      <header>
+       <a href="home"> HOME</a>
+       <a href="ABOUT US"> ABOUT US</a>
+       <a href="SERVICE"> SERVICE</a> 
+       <a href="CONTACT">CONTACT</a> 
+       
+        <a href="log out" class="logout">LOG OUT</a>
+
+      </header>
+    
+
+    </div> 
+     <div class="navleft">
+        <nav class="left">
+          <a href="dashboard">Dashboard</a>
+          <a href="profile">Profile</a>
+          <a href="messages">Messages</a>
+          <a href="friends">Friends</a>
+          <a href="gallery">Gallery</a>
+          <a href="settings">Settings</a>
+        </nav>
+       <main>
+        <div class="card">
+        <img src="toyota.jpg" alt="profile">
+        <h3>AUTOMOBILE</h3>
+        <p>beautiful scenery of cars and automobile</p>
+
+        </div>
+        <div class="card">
+        <img src="toyota.jpg" alt="profile">
+        <h3>AUTOMOBILE</h3>
+        <p>beautiful scenery of cars and automobile</p>
+        </div>
+          
+        <div class="card">
+        <img src="toyota.jpg" alt="profile">
+        <h3>AUTOMOBILE</h3>
+        <p>beautiful scenery of cars and automobile</p>
+        </div>
+
+          
+        <div class="card">
+        <img src="toyota.jpg" alt="profile">
+        <h3>AUTOMOBILE</h3>
+        <p>beautiful scenery of cars and automobile</p>
+        </div>
+
+
+           
+        <div class="card">
+        <img src="toyota.jpg" alt="profile">
+        <h3>AUTOMOBILE</h3>
+        <p>beautiful scenery of cars and automobile</p>
+        </div>
+
+
+              
+        <div class="card">
+        <img src="toyota.jpg" alt="profile">
+        <h3>AUTOMOBILE</h3>
+        <p>beautiful scenery of cars and automobile</p>
+        </div>
+
+</main>
+       <aside class="right">
+        <a href="notifications">Notification</a>
+        <a href="calendar">Calendar</a>
+        <a href="task"> Task</a>
+        <a href="events">Events</a>
+        <a href="reports">Reports</a>
+        <a href="contact">Contact</a>
+        <a href="faq"> FAQ</a>
+       </aside>
+
+
+
+       
+
+
+
+
+      </div>
+      <footer>
+        <a href="privacy">Privacy Policy</a>
+        <a href="terms">Term of Service</a>
+        <a href="help"> Help Center</a>
+        <a href="feedback"> Feedback</a>
+      </footer>
+
+
+
+</body>
+</html>
